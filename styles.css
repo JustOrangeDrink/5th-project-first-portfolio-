@@ -1,0 +1,278 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: black;
+    color: white;
+    font-family: "Anta";
+}
+
+/*  NAVIGATION */
+header {
+    margin-bottom: 100px;
+    width: 100vw;
+}
+
+#navbar {
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    background-color: orangered;
+    top: 0;
+    padding: 10px 50px;
+    border-bottom: 3px solid white;
+    z-index: 1000;
+}
+
+.nav-links {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+ul {
+    list-style: none;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+#welcome-section, #projects, #contact {
+    margin-top: -50px;
+    padding-top: 50px;
+}
+
+/*  MAKING HOVER EFFECT */
+ul a {
+    position: relative;
+    font-size: 1.2rem;
+    font-weight: 900;
+    padding-bottom: 6px;
+}
+ul a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 5px;
+    width: 0%;
+    background-color: white;
+    transition: .3s ease-in;
+}
+ul a:hover::before {
+    width: 100%;
+}
+/*  EFFECT DONE */
+
+/*  FIRST SECTION */
+#welcome-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(rgb(148, 39, 0) 5%, black 80%);
+    border-bottom: 5px dashed white;
+}
+
+.intro {
+    position: relative;
+    top: -50px;
+    text-align: center;
+}
+.intro h2 {
+    color: orangered;
+    font-style: italic;
+}
+
+.intro span {
+    color: red;
+    font-family: Georgia;
+}
+/*  SECOND SECTION */
+#projects {
+    border-bottom: 5px dashed white;
+}
+/*  INPUT PROJECT */
+.input-project {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+h1 {
+    margin-left: -15px;
+    margin-bottom: 35px;
+}
+
+input[type=email] {
+    display: block;
+    width: 50vw;
+    background-color: black;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid white;
+    color: white;
+    padding: 8px;
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-align: center;
+    margin: 0 auto;
+}
+
+label {
+    position: relative;
+    font-size: 1.5rem;
+    right: -16px;
+    pointer-events: none; 
+    font-size: 2.2rem;
+    text-wrap: nowrap;
+}
+
+input:focus ~ label,
+input:not(:placeholder-shown) ~ label {
+    top: -90px;
+    color: yellow;
+    transition: all .3s;
+}
+
+.email:not(input:focus).email:placeholder-shown ~ label {
+    top: -50px;
+    color: white;
+    transition: all .3s;
+}
+
+input[type=submit] {
+    display: block;
+    margin: 10px 25%;
+    width: 300px;
+    height: 50px;
+    background-color: black;
+    border: 5px solid white;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    box-shadow: 0 0 15px 3px rgba(255, 255, 255, 0.6);
+    margin: 0 auto;
+}
+
+input[type=submit]:hover {
+    background-color: rgba(255, 255, 255, 0.452);
+}
+
+input[type=submit]:active {
+    background-color: rgba(255, 255, 255, 0.308);
+}
+
+/* ANIMATION PROJECT */
+.animation-project {
+    text-align: center;
+    margin: 400px 0;
+}
+
+.outline {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 0 35px;
+    border-radius: 20px;
+    width: fit-content;
+    margin: 0 auto;
+    height: 90%;
+}
+.outline h1 {
+    position: relative;
+    margin: 50px 20px;
+    z-index: 10;
+    cursor: pointer;
+}
+.outline::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 150vw;
+    background: linear-gradient(to right, orange, red);
+    animation: loop 5s linear infinite;
+}
+.outline::after {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    background-color: black;
+    border-radius: 15px;
+}
+
+@keyframes loop {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*  THIRD SECTION */
+#contact {
+    border-bottom: 5px solid white;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+}
+
+.links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* border: 3px solid white; */
+    width: 97%;
+    height: 60%;
+    margin: 0 auto;
+    padding: 5px;
+}
+.account {
+    text-align: center;
+    font-size: max(20px, 5vw);
+    transition: transform .2s ease-out;
+}
+
+.fab {
+    font-size: clamp(50px, 9vw, 100px)
+}
+
+.account:hover {
+    color: red;
+    transform: translateY(15px);
+}
+
+footer {
+    width: 100vw;
+    text-align: end;
+    margin: 0 -50px;
+}

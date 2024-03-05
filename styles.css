@@ -1,5 +1,6 @@
 *, *::before, *::after {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -17,25 +18,34 @@ body {
 header {
     margin-bottom: 100px;
     width: 100vw;
+    height: 100%;
 }
 
 #navbar {
-    width: 100%;
-    height: 70px;
     position: fixed;
     display: flex;
     align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 70px;
     background-color: orangered;
     top: 0;
-    padding: 10px 50px;
+    padding: 10px 0;
     border-bottom: 3px solid white;
     z-index: 1000;
 }
 
 .nav-links {
-    width: 100%;
     display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
     justify-content: space-around;
+}
+
+
+
+.nav-links a {
     text-align: center;
 }
 
@@ -58,24 +68,8 @@ h1 {
 }
 
 /*  MAKING HOVER EFFECT */
-ul a {
-    position: relative;
-    font-size: 1.2rem;
-    font-weight: 900;
-    padding-bottom: 6px;
-}
-ul a::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 5px;
-    width: 0%;
-    background-color: white;
-    transition: .3s ease-in;
-}
-ul a:hover::before {
-    width: 100%;
+ul a:hover {
+    text-decoration: underline;
 }
 /*  EFFECT DONE */
 
@@ -124,7 +118,7 @@ h1 {
 
 input[type=email] {
     display: block;
-    width: 50vw;
+    width: min(800px,70vw);
     background-color: black;
     border: none;
     outline: none;
@@ -140,10 +134,10 @@ input[type=email] {
 label {
     position: relative;
     font-size: 1.5rem;
-    right: -16px;
     pointer-events: none; 
     font-size: 2.2rem;
     text-wrap: nowrap;
+    margin: 0 auto;
 }
 
 input:focus ~ label,
@@ -187,7 +181,8 @@ input[type=submit]:active {
 /* ANIMATION PROJECT */
 .animation-project {
     text-align: center;
-    margin: 400px 0;
+    margin: 100px 0;
+    padding: 10px;
 }
 
 .outline {
@@ -196,7 +191,6 @@ input[type=submit]:active {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    margin: 0 35px;
     border-radius: 20px;
     width: fit-content;
     margin: 0 auto;
@@ -207,7 +201,25 @@ input[type=submit]:active {
     margin: 50px 20px;
     z-index: 10;
     cursor: pointer;
+    padding-bottom: 5px;
 }
+
+/*  HOVER EFFECT */
+.outline h1::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 7px;
+    width: 0;
+    background: linear-gradient(to right, orange, red);
+    transition: .2s ease-in;
+}
+.outline h1:hover::before {
+    width: 100%;
+    left: 0;
+}
+/*  HOVER DONE */
 .outline::before {
     content: "";
     position: absolute;
@@ -235,9 +247,10 @@ input[type=submit]:active {
 
 /*  THIRD SECTION */
 #contact {
+    position: relative;
     border-bottom: 5px solid white;
     width: 100%;
-    height: 90vh;
+    height: 95%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -246,14 +259,17 @@ input[type=submit]:active {
     text-align: center;
 }
 
+#contact h1 {
+    position: absolute;
+    top: 90px;
+}
+
 .links {
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    /* border: 3px solid white; */
     width: 97%;
     height: 60%;
-    margin: 0 auto;
+    margin: 300px auto 100px auto;
     padding: 5px;
 }
 .account {
@@ -275,4 +291,19 @@ footer {
     width: 100vw;
     text-align: end;
     margin: 0 -50px;
+}
+
+@media screen and (max-width: 450px) {
+    h1 {
+        font-size: 3rem;
+    }
+}
+@media screen and (max-width: 395px) {
+    input[type=email] {
+        position: relative;
+        top: 50px;
+    }
+    label {
+        left: 2px;
+    }
 }
